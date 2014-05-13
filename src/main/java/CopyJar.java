@@ -33,7 +33,7 @@ public class CopyJar {
 
 /**
  * 
- * @author pat 将文件中的jar文件提取出来
+ * @author pat
  */
  class JarCollectionUtil {
 
@@ -61,7 +61,7 @@ public class CopyJar {
 			}
 			return "success";
 		} else {
-			return "文件路径不存在";
+			return "the file didn't exist";
 		}
 
 	}

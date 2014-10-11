@@ -15,9 +15,9 @@ public class ThreeDes {
 
     private static final String Algorithm = "DESede/CBC/PKCS5Padding";
 
-    // keybyteΪ������Կ������Ϊ24�ֽ�
+    // keybyte len 24
 
-    // srcΪ�����ܵ���ݻ�����Դ��
+    // src
     public static byte[] encryptMode(String iv, String key, String src) {
 
 	try {
@@ -55,9 +55,9 @@ public class ThreeDes {
 
     }
 
-    // keybyteΪ������Կ������Ϊ24�ֽ�
+    // keybyte lenth 24
 
-    // srcΪ���ܺ�Ļ�����
+    // src
 
     public static byte[] decryptMode(String iv, String key, byte[] src) {
 
@@ -142,7 +142,7 @@ public class ThreeDes {
 
     }
 
-    // ת����ʮ������ַ�
+   
 
     public static String byte2Hex(byte[] b) {
 

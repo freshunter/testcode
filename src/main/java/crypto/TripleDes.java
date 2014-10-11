@@ -11,7 +11,7 @@ import javax.crypto.spec.IvParameterSpec;
 
 import org.apache.commons.codec.binary.Base64;
 
-public class ThreeDes {
+public class TripleDes {
 
     private static final String Algorithm = "DESede/CBC/PKCS5Padding";
 

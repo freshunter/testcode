@@ -1,8 +1,9 @@
-package org.hkw.calc;
+package org.junit.calc;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.calc.Calc;
 
 public class CalcTest {
 	

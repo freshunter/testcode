@@ -1,4 +1,4 @@
-package org.hkw.calc;
+package org.junit.calc;
 public class Calc {
 
 	public static int add(int a, int b) {

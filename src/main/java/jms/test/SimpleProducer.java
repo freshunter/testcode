@@ -1,13 +1,12 @@
-package jms;
+package jms.test;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.MessageProducer;
+import javax.jms.ObjectMessage;
 import javax.jms.Session;
-import javax.jms.TextMessage;
-import javax.jms.Topic;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -22,17 +21,13 @@ public class SimpleProducer {
      */
     public static void main(String[] args) {
 	final int NUM_MSGS;
-	if ((args.length < 1) || (args.length > 2)) {
-	    System.out.println("Program takes one or two arguments: " + "<dest_name> [<number-of-messages>]");
-	    System.exit(1);
-	}
+//	if ((args.length < 1) || (args.length > 2)) {
+//	    System.out.println("Program takes one or two arguments: " + "<dest_name> [<number-of-messages>]");
+//	    System.exit(1);
+//	}
 	String destName = new String("example.MyTopic");
 	System.out.println("Destination name is " + destName);
-	if (args.length == 2) {
-	    NUM_MSGS = (new Integer(args[1])).intValue();
-	} else {
-	    NUM_MSGS = 1;
-	}
+	    NUM_MSGS = (new Integer(10)).intValue();
 	/*
 	 * Create a JNDI API InitialContext object if none exists yet.
 	 */
@@ -71,10 +66,12 @@ public class SimpleProducer {
 	    Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 	    dest = session.createTopic(destName);
 	    producer = session.createProducer(dest);
-	    TextMessage message = session.createTextMessage();
+//	    TextMessage message = session.createTextMessage();
+	    ObjectMessage message = session.createObjectMessage();
 	    for (int i = 0; i < NUM_MSGS; i++) {
-		message.setText("This is message " + (i + 1));
-		System.out.println("Sending message: " + message.getText());
+		message.setObject("This is message " + (i + 1));
+		message.setJMSType("to cms");
+		System.out.println("Sending message: " + message.getObject());
 		producer.send(message);
 	    }
 	    /*

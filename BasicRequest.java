@@ -47,34 +47,33 @@ public class BasicRequest {
     public static void main(String[] args) {
 //        init();
         
-//        String urlStr = URL;
-//        if (args.length == 1 && args[0] != null && !args[0].isEmpty()) {
-//            urlStr = args[0];
-//        } else if (args.length > 1) {
-//            System.out.println("only support one param: url");
-//            return;
-//        }
-//        
-//        final String fs = urlStr;
-//        
-//        execService.scheduleWithFixedDelay(new Runnable() {
-//            public void run() {
-//                String ip = getWanIP(fs);
-//                if (!ip.equals(wanIP) && ip.length() > 7) {
-//                    System.out.println("ip changed from " + wanIP + " to " + ip);
-//                    cacheIP(ip);
-//                    try {
-//                        sendNotification(ip);
-//                    } catch (Exception e) {
-//                        // TODO Auto-generated catch block
-//                        e.printStackTrace();
-//                    }
-//                } else {
-//                    System.out.println("ip not change or ip less than 7." + wanIP + " to " + ip);
-//                }
-//            }
-//        }, 5, 600, TimeUnit.SECONDS);
-        sendNotification("1.1.1.1");
+        String urlStr = URL;
+        if (args.length == 1 && args[0] != null && !args[0].isEmpty()) {
+            urlStr = args[0];
+        } else if (args.length > 1) {
+            System.out.println("only support one param: url");
+            return;
+        }
+        
+        final String fs = urlStr;
+        
+        execService.scheduleWithFixedDelay(new Runnable() {
+            public void run() {
+                String ip = getWanIP(fs);
+                if (!ip.equals(wanIP) && ip.length() > 7) {
+                    System.out.println("ip changed from " + wanIP + " to " + ip);
+                    cacheIP(ip);
+                    try {
+                        sendNotification(ip);
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                } else {
+                    System.out.println("ip not change or ip less than 7." + wanIP + " to " + ip);
+                }
+            }
+        }, 5, 600, TimeUnit.SECONDS);
 
         
     }
@@ -140,7 +139,7 @@ public class BasicRequest {
     private static void sendNotification(String ip) {
         // System.out.println("send ip");
 
-        String acount = "raspberrytest@163.com";
+        String acount = "hkw1113@163.com";
         String server = "smtp.163.com";
         String toAddr = "61477785@qq.com";
         // String toAddr = acount;
@@ -152,7 +151,7 @@ public class BasicRequest {
         String username = new sun.misc.BASE64Encoder()
                 .encode(acount.getBytes());
 
-        String password = new sun.misc.BASE64Encoder().encode("raspberry"
+        String password = new sun.misc.BASE64Encoder().encode("8781811hsyHKW"
                 .getBytes());
 
         // System.out.println(username+"/t"+password);

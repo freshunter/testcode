@@ -1,3 +1,6 @@
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Semaphore;
+
 
 public class TestMain {
 
@@ -21,6 +24,13 @@ public class TestMain {
             System.out.println(TestMain.getYangPath(path)
                     );
             System.out.println(System.currentTimeMillis());
+            
+
+
+            ConcurrentHashMap<String, Semaphore> signalMap = new ConcurrentHashMap<>();
+            Semaphore sem = signalMap.putIfAbsent("asdf", new Semaphore(1));
+            
+            System.out.println(sem.tryAcquire());
 	}
 
 }
